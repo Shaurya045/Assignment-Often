@@ -1,6 +1,5 @@
 import { useContext, useEffect } from "react";
 import { Context } from "../context/Context";
-import { Globe, ChevronDown } from "lucide-react";
 import Image from "../components/Image";
 import EventCreation from "../components/EventCreation";
 import VideoPlayer from "../components/VideoPlayer";
@@ -9,11 +8,10 @@ function View() {
   const {
     selectedTheme,
     selectedThemeType,
-    setStateFromResponse, // ✅ make sure you have this action in zustand store
+    setStateFromResponse, 
   } = useContext(Context);
 
   useEffect(() => {
-    // Try to load from 'creating' first, fallback to 'response' for backward compatibility
     const creatingData =
       typeof window !== "undefined" ? localStorage.getItem("creating") : null;
     const responseData =
@@ -29,7 +27,7 @@ function View() {
     } else if (responseData) {
       try {
         parsed = JSON.parse(responseData);
-        setStateFromResponse(parsed); // ✅ Load response.json into store
+        setStateFromResponse(parsed); 
       } catch (error) {
         console.error("Failed to parse response.json:", error);
       }
@@ -37,13 +35,13 @@ function View() {
   }, []);
 
   return (
-    <main className="relative min-h-screen w-full bg-[#2d1a42] flex flex-col items-center text-white  overflow-hidden py-10">
-      <div className="bg-[#2d1a42] w-full max-w-6xl flex flex-col md:flex-row gap-8">
-        <div className="w-full md:w-[30%] h-[300px] md:h-[500px]">
+    <main className="relative min-h-screen w-full bg-[#2d1a42] flex flex-col items-center text-white overflow-hidden py-4 sm:py-6 md:py-10 px-4 sm:px-6 md:px-8">
+      <div className="bg-[#2d1a42] w-full max-w-6xl flex flex-col md:flex-row gap-4 md:gap-8">
+        <div className="w-full md:w-[30%] ">
           <Image />
         </div>
 
-        <div className="w-full md:w-[70%] relative rounded-xl overflow-hidden px-4 py-4 flex flex-col gap-6">
+        <div className="w-full md:w-[70%] relative rounded-xl overflow-hidden px-2 sm:px-4 py-2 sm:py-4 flex flex-col gap-4 md:gap-6">
           {selectedTheme && selectedThemeType?.startsWith("video") ? (
             <video
               src={selectedTheme}
@@ -63,7 +61,7 @@ function View() {
         </div>
       </div>
 
-      <div className="mt-10 w-full max-w-5xl">
+      <div className="mt-6 sm:mt-8 md:mt-10 w-full max-w-5xl">
         <VideoPlayer />
       </div>
     </main>

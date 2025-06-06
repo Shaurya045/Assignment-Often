@@ -30,13 +30,13 @@ function ThemeSelector() {
 
   return (
     <div className="flex w-full items-stretch h-[50px] gap-1">
-      <div className="flex w-[87%] items-center bg-white/10 px-2 rounded-lg gap-2 h-full">
-        <PanelTop size={36} color="grey" />
+      <div className="flex w-[75%] sm:w-[87%] items-center bg-white/10 px-2 rounded-lg gap-2 h-full">
+        <PanelTop size={28} className="sm:size-[36px]" color="grey" />
 
         <div className="flex justify-between items-center w-full">
           <div>
-            <p className="text-[10px] text-gray-400">Theme</p>
-            <p className="text-[14px] text-white capitalize truncate max-w-[150px]">
+            <p className="text-[8px] sm:text-[10px] text-gray-400">Theme</p>
+            <p className="text-[12px] sm:text-[14px] text-white capitalize truncate max-w-[100px] sm:max-w-[150px]">
               {selectedTheme}
             </p>
           </div>
@@ -47,13 +47,13 @@ function ThemeSelector() {
               className="flex items-center space-x-1 cursor-pointer"
               type="button"
             >
-              <ChevronsUpDown size={18} color="grey" />
+              <ChevronsUpDown size={16} className="sm:size-[18px]" color="grey" />
             </button>
 
             {showSelect && (
-              <div className="absolute top-8 right-0 bg-white text-black text-sm border border-gray-300 rounded shadow-sm outline-none z-10 min-w-[180px]">
+              <div className="absolute top-8 right-0 bg-white text-black text-xs sm:text-sm border border-gray-300 rounded shadow-sm outline-none z-10 min-w-[150px] sm:min-w-[180px]">
                 <div
-                  className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                  className="px-3 sm:px-4 py-2 hover:bg-gray-100 cursor-pointer"
                   onClick={() => {
                     setSelectedTheme("/lighthouse.mp4");
                     setSelectedThemeType("video/mp4");
@@ -63,7 +63,7 @@ function ThemeSelector() {
                   Lighthouse Video
                 </div>
                 <div
-                  className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                  className="px-3 sm:px-4 py-2 hover:bg-gray-100 cursor-pointer"
                   onClick={() => {
                     setSelectedTheme("/waterfall.mp4");
                     setSelectedThemeType("video/mp4");
@@ -73,7 +73,7 @@ function ThemeSelector() {
                   Waterfall Video
                 </div>
                 <div
-                  className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                  className="px-3 sm:px-4 py-2 hover:bg-gray-100 cursor-pointer"
                   onClick={() => {
                     setSelectedTheme("/firewood.mp4");
                     setSelectedThemeType("video/mp4");
@@ -83,7 +83,7 @@ function ThemeSelector() {
                   Firewood Video
                 </div>
                 <div
-                  className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                  className="px-3 sm:px-4 py-2 hover:bg-gray-100 cursor-pointer"
                   onClick={() => {
                     setSelectedTheme("/mountain.mp4");
                     setSelectedThemeType("video/mp4");
@@ -99,10 +99,10 @@ function ThemeSelector() {
       </div>
 
       <div
-        className="flex items-center justify-center w-[13%] bg-white/10 rounded-lg h-full cursor-pointer"
+        className="flex items-center justify-center w-[25%] sm:w-[13%] bg-white/10 rounded-lg h-full cursor-pointer"
         onClick={triggerFileInput}
       >
-        <Shuffle size={18} color="grey" />
+        <Shuffle size={16} className="sm:size-[18px]" color="grey" />
         <input
           type="file"
           ref={fileInputRef}

@@ -56,18 +56,18 @@ function Create() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#2d1a42] flex items-center justify-center ">
-      <div className="bg-[#2d1a42] w-full max-w-6xl flex flex-col md:flex-row gap-8">
-        <div className="w-full md:w-[30%] h-[300px] md:h-[500px]">
+    <div className="min-h-screen w-full bg-[#2d1a42] flex items-center justify-center p-4 sm:p-6 md:p-8">
+      <div className="bg-[#2d1a42] w-full max-w-6xl flex flex-col md:flex-row gap-4 md:gap-5">
+        <div className="w-full md:w-[30%] ">
           <Image />
         </div>
 
-        <div className="w-full md:w-[70%] px-4 flex flex-col gap-6">
+        <div className="w-full md:w-[70%] px-2 sm:px-4 flex flex-col gap-4 md:gap-6">
           <EventCreation />
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             <button
               onClick={handleSaveEvent}
-              className="bg-white text-[#2d1a42] cursor-pointer hover:bg-gray-100 transition-colors px-6 py-3 rounded-lg text-lg font-bold"
+              className="bg-white text-[#2d1a42] cursor-pointer hover:bg-gray-100 transition-colors px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-base sm:text-lg font-bold"
             >
               Save Invite
             </button>
@@ -76,7 +76,7 @@ function Create() {
                 handleSaveEvent();
                 navigate("/view");
               }}
-              className="bg-white text-[#2d1a42] cursor-pointer hover:bg-gray-100 transition-colors px-6 py-3 rounded-lg text-lg font-bold"
+              className="bg-white text-[#2d1a42] cursor-pointer hover:bg-gray-100 transition-colors px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-base sm:text-lg font-bold"
             >
               Preview
             </button>

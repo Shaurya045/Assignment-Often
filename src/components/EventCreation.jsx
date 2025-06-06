@@ -52,15 +52,15 @@ export default function EventCreation() {
   }, []);
 
   return (
-    <div className=" flex flex-col gap-4 ">
+    <div className="flex flex-col gap-4 ">
       {/* Header */}
-      <div className="flex justify-between items-center mb-1">
-        <div className="bg-[#3d2a52] text-white px-3 py-1 rounded-full flex items-center gap-2 ">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0 mb-1">
+        <div className="bg-[#3d2a52] text-white px-3 py-1 rounded-full flex items-center gap-2">
           <div className="w-4 h-4 rounded-full bg-linear-to-br from-orange-500 to-white"></div>
           Personal Calendar
         </div>
-        <div className="">
-          <button className="bg-[#3d2a52] text-white px-3 py-1 rounded-full flex items-center gap-2 ">
+        <div>
+          <button className="bg-[#3d2a52] text-white px-3 py-1 rounded-full flex items-center gap-2">
             <Globe size={14} />
             <span>Public</span>
             <ChevronDown size={14} color="grey" />
@@ -72,7 +72,7 @@ export default function EventCreation() {
       <div>
         <input
           type="text"
-          className="bg-transparent border-none text-3xl text-white placeholder:text-white/60 focus:outline-none w-full"
+          className="bg-transparent border-none text-2xl md:text-3xl text-white placeholder:text-white/60 focus:outline-none w-full"
           placeholder="Event Name"
           value={eventName}
           onChange={(e) => setEventName(e.target.value)}
@@ -80,17 +80,17 @@ export default function EventCreation() {
       </div>
 
       {/* Date and Time */}
-      <div className="flex gap-4 w-full">
+      <div className="flex flex-col lg:flex-row gap-4 w-full">
         <div className="bg-[#3d2a52] relative w-full rounded-lg p-2 flex flex-col gap-2">
           <div className="absolute left-3 top-8 h-5 border-l-2 border-dotted border-gray-400 z-0 hidden sm:block"></div>
           {/* Start Date/Time */}
-          <div className="flex items-center justify-between">
-            <div className=" rounded-full bg-[#3d2a52] flex items-center gap-2 mr-2">
-              <div className="w-2 h-2 rounded-full bg-white/30 border-white border-1 "></div>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0">
+            <div className="rounded-full bg-[#3d2a52] flex items-center gap-2 mr-2">
+              <div className="w-2 h-2 rounded-full bg-white/30 border-white border-1"></div>
               <p className="text-white mr-4">Start</p>
             </div>
-            <div className=" flex gap-2">
-              <div className="relative ">
+            <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
+              <div className="relative w-full sm:w-auto">
                 <input
                   type="date"
                   className="bg-white/20 text-white p-1 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-purple-400"
@@ -98,7 +98,7 @@ export default function EventCreation() {
                   onChange={(e) => setStartDate(e.target.value)}
                 />
               </div>
-              <div className="relative ">
+              <div className="relative w-full sm:w-auto">
                 <input
                   type="time"
                   className="bg-white/20 text-white p-1 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-purple-400"
@@ -110,13 +110,13 @@ export default function EventCreation() {
           </div>
 
           {/* End Date/Time */}
-          <div className="flex items-center justify-between">
-            <div className=" rounded-full border-2 border-[#3d2a52] flex items-center gap-2 mr-2">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0">
+            <div className="rounded-full border-2 border-[#3d2a52] flex items-center gap-2 mr-2">
               <div className="w-2 h-2 rounded-full border-white/30 border-1"></div>
               <p className="text-white mr-4">End</p>
             </div>
-            <div className=" flex gap-2">
-              <div className="relative">
+            <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
+              <div className="relative w-full sm:w-auto">
                 <input
                   type="date"
                   className="bg-white/20 text-white p-1 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-purple-400"
@@ -124,7 +124,7 @@ export default function EventCreation() {
                   onChange={(e) => setEndDate(e.target.value)}
                 />
               </div>
-              <div className="relative ">
+              <div className="relative w-full sm:w-auto">
                 <input
                   type="time"
                   className="bg-white/20 text-white p-1 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-purple-400"
@@ -137,8 +137,8 @@ export default function EventCreation() {
         </div>
 
         {/* Timezone */}
-        <div className="bg-[#3d2a52] w-[30%] rounded-lg p-2 flex flex-col justify-center">
-          <Globe className="text-white mr-2" size={16} />
+        <div className="bg-[#3d2a52] w-full lg:w-[30%] rounded-lg p-2 flex flex-row lg:flex-col items-center lg:items-start gap-2 lg:gap-0">
+          <Globe className="text-white" size={16} />
           <div className="text-white">
             <div className="text-sm font-medium">GMT+05:30</div>
             <div className="text-sm opacity-70">Calcutta</div>
@@ -151,7 +151,7 @@ export default function EventCreation() {
         <div className="pt-1">
           <MapPin className="text-white mr-2" size={16} />
         </div>
-        <div>
+        <div className="w-full">
           <span className="text-white text-[16px] font-medium">
             Add Event Location
           </span>
@@ -169,7 +169,7 @@ export default function EventCreation() {
       <div className="bg-[#3d2a52] rounded-lg p-2 flex items-start">
         <FileText className="text-white mr-2 mt-1" size={16} />
         <textarea
-          className="bg-transparent border-none text-white placeholder:text-white/60 focus:outline-none w-full resize-none"
+          className="bg-transparent border-none text-white placeholder:text-white/60 focus:outline-none w-full resize-none min-h-[100px]"
           placeholder="Add Description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
@@ -186,11 +186,11 @@ export default function EventCreation() {
             <Ticket className="text-white mr-2" size={16} />
             <span className="text-white">Tickets</span>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center ">
             {isEditing ? (
               <input
                 type="text"
-                className="bg-[#4d3a62] text-white px-2 py-1 rounded w-20 mr-2 placeholder:text-white/60 focus:outline-none "
+                className="bg-[#4d3a62] text-white px-2 py-1 rounded w-full sm:w-20 mr-2 placeholder:text-white/60 focus:outline-none"
                 placeholder="Free"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
@@ -198,23 +198,18 @@ export default function EventCreation() {
                   setIsEditing(false);
                   setPrice("Free");
                 }}
-                onKeyDown={(e) =>
-                  e.key === "Enter" && setIsEditing(false) && setPrice("Free")
-                }
-                autoFocus
               />
             ) : (
-              <span className="text-white mr-2">{price}</span>
+              <div className="flex items-center gap-2 w-full sm:w-auto">
+                <span className="text-white">{price}</span>
+                <button
+                  onClick={() => setIsEditing(true)}
+                  className="text-white/60 hover:text-white"
+                >
+                  <Pencil size={14} />
+                </button>
+              </div>
             )}
-            <button
-              onClick={() => {
-                setIsEditing(true);
-                setPrice("");
-              }}
-              className="hover:opacity-70 transition-opacity"
-            >
-              <Pencil className="text-white" size={16} />
-            </button>
           </div>
         </div>
 
