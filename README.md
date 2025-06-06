@@ -123,7 +123,7 @@ src/
    ```bash
    npm start
    ```
-   The app is available at [http://localhost:3000](http://localhost:3000).
+   The app is available at [https://assignment-often.vercel.app/](https://assignment-often.vercel.app/).
 
 ---
 
